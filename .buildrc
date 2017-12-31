@@ -1,0 +1,20 @@
+{
+  "cwd": ".",
+
+  "files": [
+    "**/**"
+  ],
+
+  "commands": {
+    "pre": [],
+    "post": [
+      "sudo docker build -t docker.yamzu.rocks/snet .",
+      "cp -r bin/docker .",
+      "sudo rm -rf `ls | grep -v docker | xargs`",
+      "chmod +x docker/*",
+      "mv docker/* .",
+      "rm -rf docker",
+      "mkdir config"
+    ]
+  }
+}

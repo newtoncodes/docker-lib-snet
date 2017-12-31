@@ -1,0 +1,11 @@
+{
+  "name": "yamzu-snet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "async": "^2.4.0"
+  }
+}
