@@ -51,6 +51,15 @@ let promises = [forever()];
 for (let vpn of vpns) promises.push(openvpn(vpn));
 for (let port of ports) promises.push(socat(port[0], port[1], port[2]));
 
+process.on('SIGTERM', () => {
+    console.log('Closed by user.');
+    process.exit(0);
+});
+process.on('SIGKILL', () => {
+    console.log('Killed by user.');
+    process.exit(0);
+});
+
 Promise.all(promises).then(() => {
     console.log('Unexpected finish without an error.');
 }).catch(e => {
