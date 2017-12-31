@@ -5,8 +5,11 @@ const exec = require('child_process').exec;
 const p = {};
 let i = 0;
 
-let ports = (process.env['PORTS'] || '').split(/\s+/).map(s => s.split(':'));
-let vpns = readdir('/etc/snet/').filter(s => s !== '.' && s !== '..').map(c => c.replace('/etc/snet/', '').replace(/\.conf$/, ''));
+let ports = (process.env['PORTS'] || '').split(/\s+/).map(s => s.split(':')).filter(s => (s || '').length > 0);
+let vpns = readdir('/etc/snet/').filter(s => s !== '.' && s !== '..').map(c => c.replace('/etc/snet/', '').replace(/\.conf$/, '')).filter(s => (s || '').length > 0);
+
+console.log(ports);
+console.log(vpns);
 
 /*
   PORTS=3306:mysql:3306 3306:mysql:3306 3306:mysql:3306
