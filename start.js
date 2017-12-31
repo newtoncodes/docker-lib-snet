@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 const p = {};
 let i = 0;
 
-let ports = (process.env['PORTS'] || '').split(/\s+/).map(s => s.split(':')).filter(s => (s || '').length > 0);
+let ports = (process.env['PORTS'] || '').split(/\s+/).filter(s => (s || '').length > 0).map(s => s.split(':'));
 let vpns = readdir('/etc/snet/').filter(s => s !== '.' && s !== '..').map(c => c.replace('/etc/snet/', '').replace(/\.conf$/, '')).filter(s => (s || '').length > 0);
 
 console.log(ports);
