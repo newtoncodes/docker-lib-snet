@@ -62,7 +62,9 @@ process.on('SIGINT', () => {
 
 Promise.all(promises).then(() => {
     console.log('Unexpected finish without an error.');
+    process.exit(1);
 }).catch(e => {
     console.error('Error: ' + e.message);
+    process.exit(1);
 });
 
