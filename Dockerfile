@@ -10,5 +10,4 @@ RUN mkdir /etc/snet
 ADD start.js /usr/bin/start
 RUN chmod +x /usr/bin/start
 
-VOLUME /etc/snet
 CMD ["start"]
