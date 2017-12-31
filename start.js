@@ -55,7 +55,7 @@ process.on('SIGTERM', () => {
     console.log('Closed by user.');
     process.exit(0);
 });
-process.on('SIGKILL', () => {
+process.on('SIGINT', () => {
     console.log('Killed by user.');
     process.exit(0);
 });
