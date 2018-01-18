@@ -7,7 +7,9 @@ RUN apk --no-cache --update upgrade && apk --no-cache add openvpn
 
 RUN mkdir /etc/snet
 
-ADD start.js /usr/bin/start
+COPY start.js /usr/bin/start
 RUN chmod +x /usr/bin/start
+
+VOLUME ["/etc/snet"]
 
 CMD ["start"]
